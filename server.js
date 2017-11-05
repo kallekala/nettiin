@@ -4,6 +4,9 @@ const fs = require('fs');
 
 var app = express();
 
+//portti herokulle
+const port = process.env.PORT || 3000;
+
 //partials käyttöön
 hbs.registerPartials(__dirname + '/views/partials')
 // laittaa public-folderin käyttöön
@@ -17,11 +20,8 @@ app.get('/', (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log(`server up on port 3000`);
+
+
+app.listen(port, () => {
+  console.log(`server up on port ${port}`);
 });
-
-
-// app.listen(port, () => {
-//   console.log(`server up on port ${port}`);
-// });
